@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bookify.Domain.Abstractions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace Bookify.Domain.Apartments
 {
-    public class Apartment
+    public class Apartment : Entity
     {
-        public Guid Id { get; private set; }
         public string Name { get; private set; }
         public string Description { get; private set; }
         public string Country { get; private set; }
@@ -23,5 +23,8 @@ namespace Bookify.Domain.Apartments
         public DateTime? LastBookedOnUtc { get; private set; }
         public List<Amenity> Amenities { get; private set; }
 
+        public Apartment(Guid id) : base(id)
+        {
+        }
     }
 }
